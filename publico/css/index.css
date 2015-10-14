@@ -1,0 +1,21 @@
+.modal-body{
+    min-height: 400px;
+}
+
+.imgPoster {
+	max-height:370px;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+  .input-group {
+  	min-width: 550px;
+  	margin:auto;
+  }
+  .botones{
+  	font-size:9px;
+  }
+}
