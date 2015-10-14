@@ -48,11 +48,11 @@ npm install
 
 Por defecto al desplegar nuestro servidor Express renderiza una página que nos permite interactuar con el API sin salirnos del entorno visual.
 
-[!Interfaz](doc/movie_fire.png)
+![Interfaz](doc/movie_fire.png)
 
 Además de la lista de las películas presentes en Firebase, que se actualiza en tiempo real gracias al uso de websockets (Nodejs < -(Express)-> Cliente directo <- (Web Sockets) Firebase <-(API)-> Nodejs). Podemos ver los detalles de cada película en un Modal.
 
-[!Interfaz detalles](doc/movie_fire_details.png)
+![Interfaz detalles](doc/movie_fire_details.png)
 
 Además se incluye la opción de manejar el API desde la consola del navegador usando la función *llamarAPI*
 
