@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Movie Fire
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='css/index.css')
+  body
+    .container
+      .text-center
+        h1
+          span.glyphicon.glyphicon-film(aria-hidden='true')
+          |  Movie Fire
+        h3 Guarda tus peliculas favoritas con todo detalle
+      hr
+      .input-group
+        input#movieName.form-control(type='text', placeholder='Escribe el nombre de una pelicula', onkeypress='return saveToList(event)')
+      hr
+      #favMovies Cargando..
+      #movieDetails
+      // Modal
+      #detallesModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='detallesModalLabel')
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+              h4#detallesModalLabel.modal-title  
+            .modal-body
+              #imagenDetalles.col-md-6
+              #textoDetalles.col-md-6
+            .modal-footer
+              button.btn.btn-default(type='button', data-dismiss='modal') Cerrar
+    script(type='text/javascript', src='https://cdn.firebase.com/js/client/1.0.15/firebase.js')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    script(type='text/javascript', src='js/index.js')
