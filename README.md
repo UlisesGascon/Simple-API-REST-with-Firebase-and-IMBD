@@ -104,6 +104,20 @@ app.use(function(req, res, next) {
 
 Este script está pensado para utilizar un [Token](http://www.wikiwand.com/en/Access_token) en la escritura de datos en Firebase. La lectura de los datos no tiene restricciones. Es importante definir [las reglas de seguridad de firebase](https://www.firebase.com/docs/security/guide/securing-data.html) de una manera compatible.
 
+```javascript
+myFirebaseRef.authWithCustomToken(config.token, function(error, authData) {
+    if (error) {
+        logger.error("Error al guardar los datos en Firebase (relacionado con Token).", {
+            datos: error
+        });
+    } else {
+        logger.info("Autentificación (via Token) lograda con exito.", {
+            datos: authData
+        });
+    }
+});
+```
+
 Además se recomienda hacer un [indexado a la ruta "details/imbID"](https://www.firebase.com/docs/security/guide/indexing-data.html) que es la que se usa en el front para cargar los detalles de las películas.
 
 ```json
@@ -131,9 +145,60 @@ El script está listo para funcionar en [c9.io](https://c9.io/), si desea cambia
 
 Por defecto el repositorio incorpora un archivo *config.js* vacio. Es necesario meter los datos correspondientes para que funcione. Es recomendable que la propiedad *token* sea una variable del entorno, sobretodo en entornos de producción.
 
-Este ajuste solo es necesario en los archivos *config.js* (rutas y token) y *publico/js/index.js* (solo rutas)
+Este ajuste solo es necesario en los archivos *config.js* (rutas y token) 
+```javascript
+var config = {
+  token: "",
+  firebaseApp: "",
+  firebaseAppRuta: ""
+};
+```
+y *publico/js/index.js* (solo rutas)
+```javascript
+var myFBAdress = "";
+var serverAdress = ""; // .../api/peliculas/
+```
 
 
 ### Notas
 
 El script descarga en *publico/img/* todos los posters de las películas. Y solo se utilizan esas imágenes o *black.jpg* en su defecto. Ya que la url original provoca un *error 503* al solicitarlas desde un dominio diferente (en localhost funcionan igualmente).
+
+```javascript
+// Guardar los posters (Método POST)
+if (pelicula.poster) {
+    pelicula.posterSolution = pelicula.imdb.id + ".jpg";
+    var file = fs.createWriteStream('./publico/img/' + pelicula.imdbID + '.jpg');
+    var request = http.get(pelicula.poster, function(response) {
+        response.pipe(file);
+        logger.warn("Poster de la pelicula " + pelicula.imdb.id + " guardado en /publico/img/ como " + pelicula.imdbID + ".jpg");
+    }).on('error', function(e) {
+        pelicula.posterSolution = false;
+        logger.error("Poster de la película " + pelicula.imdb.id + " no se pudo guardar.", {
+            datos: e
+        });
+    });
+} else {
+    pelicula.posterSolution = false;
+    logger.error("La película " + pelicula.imdb.id + " no tiene poster asociado.");
+}
+```
+y elimina los posters cuando ya no son necesarios.
+```javascript
+// Elimina los posters (Método DELETE)
+fs.unlink('./publico/img/' + req.params.id + '.jpg', function(err) {
+    if (err) {
+        if (err.errno == 34) {
+            logger.error("Error al borrar la imagen /publico/img/" + req.params.id + ".jpg. La imagen no existe", {
+                datos: err
+            });
+        } else {
+            logger.error("Error al borrar la imagen /publico/img/" + req.params.id + ".jpg", {
+                datos: err
+            });
+        }
+    } else {
+        logger.info("./publico/img/" + req.params.id + ".jpg - eliminado con exito");
+    }
+});
+```
