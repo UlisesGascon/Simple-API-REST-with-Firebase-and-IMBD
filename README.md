@@ -1,3 +1,5 @@
+![dependencies](https://david-dm.org/UlisesGascon/Simple-API-REST-with-Firebase-and-IMBD.svg)
+
 # Simple API REST con [Firebase](https://www.firebase.com/) y [OMBD](http://omdbapi.com/)
 
 Este script está diseñado como contenido académico para el [curso de Node.js](http://www.fictizia.com/formacion/curso_nodejs) de [Fictizia](http://www.fictizia.com/). 
