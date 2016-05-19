@@ -17,7 +17,7 @@ La parte front del proyecto se basa en la evolución del [repositorio](https://g
 
 Para el enriquecimiento de datos con la información de las películas, utilizamos [OMBD](http://omdbapi.com/), pero a través de la [librería de Misterhat](https://github.com/misterhat/omdb)
 
-Para la gestión de los errores, he utilizado [Winston](https://github.com/winstonjs/winston). He utilizado una configuración similar al artículo [Advance logging with Nodejs](http://tostring.it/2014/06/23/advanced-logging-with-nodejs/) de [Ugo Lattanzi](https://twitter.com/imperugo)
+Para la gestión de los errores, he utilizado [Crier](https://www.npmjs.com/package/crier).
 
 
 ### Dependencias:
@@ -34,7 +34,7 @@ Para la gestión de los errores, he utilizado [Winston](https://github.com/winst
     - [Jquery (1.11.3)](https://jquery.com)
     - [Bootstrap (3.3.5)](http://getbootstrap.com/)
 
-**v1.0.0**
+**[v1.0.0](https://github.com/UlisesGascon/Simple-API-REST-with-Firebase-and-IMBD/releases/tag/v1.0.0)**
 - Backend
     - [Express (4.13.3)](https://www.npmjs.com/package/express)
     - [Body-parser (1.5.1)](https://www.npmjs.com/package/body-parser)
@@ -62,7 +62,7 @@ Por defecto al desplegar nuestro servidor Express renderiza una página que nos 
 
 ![Interfaz](/doc/movie_fire.png)
 
-Además de la lista de las películas presentes en Firebase, que se actualiza en tiempo real gracias al uso de websockets (Nodejs < -(Express)-> Cliente directo <- (Web Sockets) Firebase <-(API)-> Nodejs). Podemos ver los detalles de cada película en un Modal.
+Además de la lista de las películas presentes en Firebase, que se actualiza en tiempo real gracias al uso de websockets (Nodejs < -(Pillars)-> Cliente directo <- (Web Sockets) Firebase <-(API)-> Nodejs). Podemos ver los detalles de cada película en un Modal.
 
 ![Interfaz detalles](/doc/movie_fire_details.png)
 
@@ -88,15 +88,15 @@ Imaginemos que nuestro script está funcionando en localhost bajo el puerto 3000
 
 **Headers CORS**
 
-El [CORS](http://www.wikiwand.com/en/Cross-origin_resource_sharing) está habilitado, así que se pueden hacer peticiones a nuestra API desde otros dominios.
+El [CORS](http://www.wikiwand.com/en/Cross-origin_resource_sharing) está habilitado exclusivamente en la ruta del API. Gracias al sistema de enrutado que incorpora pillars, por tanto se pueden hacer peticiones a nuestra API desde otros dominios.
 
 ```javascript
 // CORS
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+var rutaApiPeliculas = new Route({
+        id: "peliculas",
+        path: "/api/peliculas/*:path",
+        cors: true
+    },
 ```
 
 **Rutas Front**
@@ -113,6 +113,8 @@ app.use(function(req, res, next) {
 
 
 ### Configuración en Firebase
+
+**Nota: Existe una nueva versión de Firebase, estoy trabajando en la migración. [Más detalles](https://firebase.google.com/)**
 
 Este script está pensado para utilizar un [Token](http://www.wikiwand.com/en/Access_token) en la escritura de datos en Firebase. La lectura de los datos no tiene restricciones. Es importante definir [las reglas de seguridad de firebase](https://www.firebase.com/docs/security/guide/securing-data.html) de una manera compatible.
 
