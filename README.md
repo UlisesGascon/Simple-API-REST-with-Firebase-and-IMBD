@@ -22,21 +22,31 @@ Para la gestión de los errores, he utilizado [Winston](https://github.com/winst
 
 ### Dependencias:
 
-**Backend**
+**v2.0.0 - (Actual)**
+- Backend
+    - [Pillars (0.3.1)](https://www.npmjs.com/package/pillars)
+    - [Crier (0.4.5)](https://www.npmjs.com/package/crier)
+    - [Jade (1.11.0)](https://www.npmjs.com/package/jade)
+    - [Omdb (0.3.1)](https://github.com/misterhat/omdb)
+    - [Firebase (2.3.1)](https://www.npmjs.com/package/firebase)
+- Frontend
+    - [Firebase Client (1.0.15)](https://www.firebase.com)
+    - [Jquery (1.11.3)](https://jquery.com)
+    - [Bootstrap (3.3.5)](http://getbootstrap.com/)
 
-- [Express (4.13.3)](https://www.npmjs.com/package/express)
-- [Body-parser (1.5.1)](https://www.npmjs.com/package/body-parser)
-- [Method-override (2.1.2)](https://www.npmjs.com/package/method-override)
-- [Jade (1.11.0)](https://www.npmjs.com/package/jade)
-- [Omdb (0.3.1)](https://github.com/misterhat/omdb)
-- [Firebase (2.3.1)](https://www.npmjs.com/package/firebase)
-- [Winston (1.1.0)](https://github.com/winstonjs/winston)
-
-**Frontend**
-
-- [Firebase Client (1.0.15)](https://www.firebase.com)
-- [Jquery (1.11.3)](https://jquery.com)
-- [Bootstrap (3.3.5)](http://getbootstrap.com/)
+**v1.0.0**
+- Backend
+    - [Express (4.13.3)](https://www.npmjs.com/package/express)
+    - [Body-parser (1.5.1)](https://www.npmjs.com/package/body-parser)
+    - [Method-override (2.1.2)](https://www.npmjs.com/package/method-override)
+    - [Jade (1.11.0)](https://www.npmjs.com/package/jade)
+    - [Omdb (0.3.1)](https://github.com/misterhat/omdb)
+    - [Firebase (2.3.1)](https://www.npmjs.com/package/firebase)
+    - [Winston (1.1.0)](https://github.com/winstonjs/winston)
+- Frontend
+    - [Firebase Client (1.0.15)](https://www.firebase.com)
+    - [Jquery (1.11.3)](https://jquery.com)
+    - [Bootstrap (3.3.5)](http://getbootstrap.com/)
 
 
 **Instalar dependencias**
