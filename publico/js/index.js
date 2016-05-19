@@ -1,8 +1,8 @@
 /*global Firebase*/
 
-var myFBAdress = "<<<--- FIREBASE-URL --->>>";
+var myFBAdress = "https://experimentos.firebaseio.com/nodemovies";
 var favMovies = new Firebase(myFBAdress);
-var serverAdress = "<<<--- URL --->>>/api/peliculas/";
+var serverAdress = "http://pillarsjs.herokuapp.com/api/peliculas/";
 
 function saveToList(event) {
     if (event.which == 13 || event.keyCode == 13) {

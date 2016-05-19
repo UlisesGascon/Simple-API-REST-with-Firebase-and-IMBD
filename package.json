@@ -1,18 +1,16 @@
 {
   "name": "moviefire-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Simple API Rest with Firebase and OMBD",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.5.1",
-    "express": "^4.13.3",
-    "firebase": "^2.3.1",
-    "jade": "^1.11.0",
-    "method-override": "^2.1.2",
-    "omdb": "^0.3.1",
-    "winston": "^1.1.0"
+    "crier": "0.4.5",
+    "firebase": "2.3.1",
+    "jade": "1.11.0",
+    "omdb": "0.3.1",
+    "pillars": "^0.3.3"
   },
   "devDependencies": {},
   "author": "Ulises Gascon",
-  "license": "Apache"
+  "license": "GPL-3.0"
 }
