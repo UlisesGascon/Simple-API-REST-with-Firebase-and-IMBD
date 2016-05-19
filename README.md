@@ -22,7 +22,7 @@ Para la gestión de los errores, he utilizado [Crier](https://www.npmjs.com/pack
 
 ### Dependencias:
 
-**v2.0.0 - (Actual)**
+**[v2.0.0 - (Actual)](https://github.com/UlisesGascon/Simple-API-REST-with-Firebase-and-IMBD/releases/tag/v2.0.0)**
 - Backend
     - [Pillars (0.3.1)](https://www.npmjs.com/package/pillars)
     - [Crier (0.4.5)](https://www.npmjs.com/package/crier)
