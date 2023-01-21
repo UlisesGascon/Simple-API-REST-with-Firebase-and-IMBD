@@ -1,4 +1,5 @@
-![dependencies](https://david-dm.org/UlisesGascon/Simple-API-REST-with-Firebase-and-IMBD.svg)
+<h2 align="center">:warning: This repository is not longer maintained :warning:</h2>
+
 
 # Simple API REST con [Firebase](https://www.firebase.com/) y [OMBD](http://omdbapi.com/)
 
